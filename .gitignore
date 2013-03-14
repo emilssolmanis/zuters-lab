@@ -1,0 +1,6 @@
+*.pyc
+*.png
+*.pdf
+*.zip
+\.directory
+*~

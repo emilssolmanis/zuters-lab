@@ -1,0 +1,5 @@
+RISK	LOW	medium	high
+history	bad	unknown	GOOD
+debt	low	HIGH	-
+recommendations	no	YES	-
+income	low	medium	HIGH
