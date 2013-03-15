@@ -1,7 +1,12 @@
 import os
+import numpy
 
 def test():
     print "--------------------------------------------------------------------------------"
+    print "---------------------------------LAB2-------------------------------------------"
+    print "--------------------------------------------------------------------------------"
+
+    numpy.set_printoptions(precision=3, suppress=True)
 
     import lab2
     lab_root = os.path.dirname(__file__)
@@ -21,14 +26,14 @@ def test():
     print "Trained on d2.txt in %d epochs, MSE %.3f" % (epoch, err)
     results = lab2.run(samples, weights, g)
     for inp, expected, out in zip(samples, answers, results):
-        print "%s : %s : %s" % (inp, expected, ["%.3f" % f for f in out])
+        print "%s : %s : %s" % (inp, expected, out)
 
     answers = lab2.read_table(lab_root + "/d3.txt")
     epoch, err, weights = lab2.train_slp(samples, answers, 500, g, 0.1, 0.01)
     print "Trained on d3.txt in %d epochs, MSE %.3f" % (epoch, err)
     results = lab2.run(samples, weights, g)
     for inp, expected, out in zip(samples, answers, results):
-        print "%s : %s : %s" % (inp, expected, ["%.3f" % f for f in out])
+        print "%s : %s : %s" % (inp, expected, out)
 
     answers = lab2.read_table(lab_root + "/d.txt")
 

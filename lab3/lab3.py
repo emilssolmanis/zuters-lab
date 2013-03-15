@@ -37,7 +37,7 @@ def train_mlp(samples, answers, sizes, max_epochs, g, train_coeff, err_limit):
         y = run(samples, weights, g)
 
         output_error = answers - y[-1][:, :-1]
-        output_error = hstack((output_error, array([[0] for _ in output_error])))
+        output_error = hstack((output_error, zeros((len(output_error), 1))))
         get_error = lambda: output_error
         for i in range(len(weights) - 1, -1, -1):
             error = get_error()
@@ -47,7 +47,7 @@ def train_mlp(samples, answers, sizes, max_epochs, g, train_coeff, err_limit):
             weights[i] += wc
             get_error = lambda: dot(grad[:, :-1], weights[i + 1].transpose())
 
-        err = sum(output_error[:, :-1]**2) / len(samples)
+        err = sum(output_error[:, :-1]**2) / size(output_error[:, :-1])
 
         epoch += 1
     
