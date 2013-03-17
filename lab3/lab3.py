@@ -30,7 +30,6 @@ def train_mlp(samples, answers, sizes, max_epochs, g, train_coeff, err_limit):
         layer = random.random((neur_prev + 1, neur_curr)) * 0.6 - 0.3
         weights.append(layer)
 
-    # TODO: check the whole part about hstacking the answer, seems to act weird
     err = inf
     epoch = 0
     while epoch < max_epochs and err > err_limit:
