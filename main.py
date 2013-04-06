@@ -10,7 +10,7 @@ def main():
         dirs.remove('.git')
     except ValueError:
         pass
-    for package in dirs:
+    for package in sorted(dirs):
         pack = __import__(package + ".test")
         pack.test.test()
 
