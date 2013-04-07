@@ -2,6 +2,10 @@ import os
 import lab8
 
 def test():
+    print "--------------------------------------------------------------------------------"
+    print "----------------------------------LAB8------------------------------------------"
+    print "--------------------------------------------------------------------------------"
+
     lab_root = os.path.dirname(__file__)
     samples = lab8.read_table(lab_root + "/examples.txt")
     answers = lab8.read_table(lab_root + "/d.txt")

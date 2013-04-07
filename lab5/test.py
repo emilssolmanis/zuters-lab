@@ -50,12 +50,15 @@ def test():
         results = lab3.run(samples[validate_indices], weights, g)
         if epoch < max_epochs:
             err = sum((answers[validate_indices] - results[-1][:, :-1])**2) / len(validate_indices)
-            print "err = %.3f" % err
             return err
         else:
-            print "failed to train (%d, %.3f, %.3f, %s)" % (i, g, eta, size)
             return float('Inf')
+
+    print "Val. grp.\tSlope\tLearn coeff.\tTopology\tMSE"
+    for conf in get_confs():
+        i, g, eta, size = conf
+        print "%d\t%.3f\t%.3f\t%s\t%.4f" % (i, g, eta, size, run_conf(conf))
 
     # TODO: create a table, actually find the best confs
     # TODO: parallelize this crap
-    results = map(run_conf, get_confs())
+    # results = map(run_conf, get_confs())
