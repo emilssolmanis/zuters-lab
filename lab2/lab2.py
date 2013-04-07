@@ -1,4 +1,3 @@
-from math import exp
 from numpy import *
 
 def read_table(filename):
