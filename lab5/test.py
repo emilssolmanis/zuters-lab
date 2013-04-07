@@ -56,4 +56,6 @@ def test():
             print "failed to train (%d, %.3f, %.3f, %s)" % (i, g, eta, size)
             return float('Inf')
 
+    # TODO: create a table, actually find the best confs
+    # TODO: parallelize this crap
     results = map(run_conf, get_confs())
